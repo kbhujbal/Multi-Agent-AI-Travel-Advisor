@@ -20,10 +20,8 @@ from dotenv import load_dotenv
 from crewai import Crew, Process
 
 # Import tools
-from tools.flight_search_tool import FlightSearchTool
-from tools.hotel_search_tool import HotelSearchTool
-from tools.activity_search_tool import ActivitySearchTool
-from tools.travel_knowledge_rag_tool import TravelKnowledgeRAGTool
+from tools.simple_tools import search_flights, search_hotels, search_activities, get_travel_knowledge
+# from tools.rag_tool_setup import create_travel_rag_tool  # Optional: Advanced RAG
 
 # Import agents
 from agents.agents import (
@@ -51,26 +49,25 @@ from agents.tasks import (
 def initialize_tools():
     """
     Initialize all tools for the agents
-    This includes custom API tools and the RAG tool
+    Returns list of tools that work with CrewAI 1.4.1
     """
     print("🔧 Initializing tools...")
 
-    # API-based tools
-    flight_tool = FlightSearchTool()
-    hotel_tool = HotelSearchTool()
-    activity_tool = ActivitySearchTool()
+    # Simple function-based tools that work with CrewAI 1.4.1
+    tools_list = [
+        search_flights,
+        search_hotels,
+        search_activities,
+        get_travel_knowledge
+    ]
 
-    # RAG tool (ChromaDB vector store)
-    rag_tool = TravelKnowledgeRAGTool()
+    # Optional: Add advanced RAG tool
+    # rag_tool = create_travel_rag_tool()
+    # tools_list.append(rag_tool)
 
     print("✅ All tools initialized successfully\n")
 
-    return {
-        'flight_tool': flight_tool,
-        'hotel_tool': hotel_tool,
-        'activity_tool': activity_tool,
-        'rag_tool': rag_tool
-    }
+    return tools_list
 
 
 def create_travel_crew(user_request: str):
@@ -85,34 +82,36 @@ def create_travel_crew(user_request: str):
     """
     print("👥 Creating agent crew...\n")
 
-    # Create agents without custom tools (CrewAI 1.4.1 compatibility)
-    # Agents will use their LLM capabilities and knowledge
+    # Initialize tools
+    tools = initialize_tools()
+
+    # Create agents with tools (CrewAI 1.4.1 with function-based tools)
     travel_manager = create_travel_manager(
-        tools=[]
+        tools=[get_travel_knowledge]
     )
 
     flight_agent = create_flight_agent(
-        tools=[]
+        tools=[search_flights]
     )
 
     accommodation_agent = create_accommodation_agent(
-        tools=[]
+        tools=[search_hotels]
     )
 
     activity_agent = create_activity_agent(
-        tools=[]
+        tools=[search_activities, get_travel_knowledge]
     )
 
     logistics_agent = create_logistics_agent(
-        tools=[]
+        tools=[get_travel_knowledge]
     )
 
     knowledge_agent = create_travel_knowledge_agent(
-        tools=[]
+        tools=[get_travel_knowledge]
     )
 
     itinerary_compiler = create_itinerary_compiler_agent(
-        tools=[]
+        tools=[]  # Compiler synthesizes info from other agents
     )
 
     print("✅ Agents created successfully\n")
