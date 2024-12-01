@@ -398,5 +398,16 @@ You now have a **complete, working, multi-agent RAG travel planning system** tha
 | Main code | [main.py](main.py) |
 | Agents | [agents/agents.py](agents/agents.py) |
 | Tools | [tools/](tools/) |
+| License | [LICENSE](LICENSE) - MIT License |
+
+## 📝 License
+
+This project is licensed under the **MIT License**, which means you are free to:
+- ✅ Use it for personal or commercial purposes
+- ✅ Modify and adapt it to your needs
+- ✅ Distribute it to others
+- ✅ Include it in proprietary software
+
+See the [LICENSE](LICENSE) file for full details.
 
 **Happy building!** 🚀✨

@@ -10,6 +10,9 @@ This is the complete, runnable system that:
 
 Usage:
     python main.py
+
+License:
+    MIT License - See LICENSE file for details
 """
 
 import os

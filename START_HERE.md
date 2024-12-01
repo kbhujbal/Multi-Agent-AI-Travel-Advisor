@@ -296,4 +296,10 @@ python main.py
 2. Open [main.py](main.py) and read through
 3. Explore [agents/agents.py](agents/agents.py)
 
+## 📝 License
+
+This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
+
+**You are free to use, modify, and distribute this project for personal or commercial purposes!**
+
 **Happy travels!** 🚀

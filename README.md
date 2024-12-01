@@ -414,7 +414,9 @@ selected_request = user_requests[0]  # Change index to test different requests
 
 ## 📝 License
 
-This project is open source and available for educational purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+You are free to use, modify, and distribute this software for personal or commercial purposes.
 
 ## 🙋 Support
 
