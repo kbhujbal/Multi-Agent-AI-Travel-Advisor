@@ -1,11 +1,20 @@
+# Core frameworks
 crewai==0.28.8
 crewai[tools]==0.28.8
-langchain==0.1.20
-langchain-openai==0.1.6
-langchain-community==0.0.38
-chromadb==0.4.24
-openai==1.30.1
+
+# LangChain (use flexible versions to avoid conflicts)
+langchain>=0.1.10,<0.2.0
+langchain-openai>=0.1.0,<0.2.0
+langchain-community>=0.0.20,<0.1.0
+
+# Vector database (compatible with crewai-tools)
+chromadb>=0.4.22,<0.5.0
+
+# OpenAI
+openai>=1.0.0
+
+# Utilities
 python-dotenv==1.0.0
-pydantic==2.7.1
-pandas==2.2.2
-tiktoken==0.7.0
+pydantic>=2.0.0,<3.0.0
+pandas>=2.0.0
+tiktoken>=0.5.0
