@@ -3,7 +3,7 @@ Hotel Search Tool - Searches for accommodations with mock data
 In production, integrate with Booking.com, Airbnb, or Hotels.com API
 """
 
-from crewai_tools import BaseTool
+from langchain.tools import BaseTool
 from typing import Type, Optional
 from pydantic import BaseModel, Field
 import random

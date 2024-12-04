@@ -3,7 +3,7 @@ Travel Knowledge RAG Tool - Retrieval-Augmented Generation for travel informatio
 Uses ChromaDB as vector store to retrieve relevant travel tips and information
 """
 
-from crewai_tools import BaseTool
+from langchain.tools import BaseTool
 from typing import Type, Optional, List
 from pydantic import BaseModel, Field
 import os

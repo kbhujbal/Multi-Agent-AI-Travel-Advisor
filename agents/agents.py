@@ -5,7 +5,7 @@ Each agent has a specific role, goal, and backstory
 
 from crewai import Agent
 from typing import List
-from crewai_tools import BaseTool
+from langchain.tools import BaseTool
 
 
 def create_travel_manager(tools: List[BaseTool]) -> Agent:

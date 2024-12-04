@@ -3,9 +3,9 @@ Flight Search Tool - Searches for flights with mock data
 In production, integrate with Amadeus, Skyscanner, or Google Flights API
 """
 
-from crewai_tools import BaseTool
+from langchain.tools import BaseTool
 from typing import Type, Optional, List, Dict
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from datetime import datetime, timedelta
 import random
 

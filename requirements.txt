@@ -1,20 +1,7 @@
-# Core frameworks
-crewai==0.28.8
-crewai[tools]==0.28.8
+# Install CrewAI with tools - it will handle most dependencies
+crewai[tools]
 
-# LangChain (use flexible versions to avoid conflicts)
-langchain>=0.1.10,<0.2.0
-langchain-openai>=0.1.0,<0.2.0
-langchain-community>=0.0.20,<0.1.0
-
-# Vector database (compatible with crewai-tools)
-chromadb>=0.4.22,<0.5.0
-
-# OpenAI
-openai>=1.0.0
-
-# Utilities
-python-dotenv==1.0.0
-pydantic>=2.0.0,<3.0.0
-pandas>=2.0.0
-tiktoken>=0.5.0
+# Additional utilities
+python-dotenv
+pandas
+tiktoken

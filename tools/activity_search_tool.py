@@ -3,7 +3,7 @@ Activity & Tour Search Tool - Finds attractions, tours, and experiences
 In production, integrate with GetYourGuide, Viator, or TripAdvisor API
 """
 
-from crewai_tools import BaseTool
+from langchain.tools import BaseTool
 from typing import Type, Optional, List
 from pydantic import BaseModel, Field
 import random
