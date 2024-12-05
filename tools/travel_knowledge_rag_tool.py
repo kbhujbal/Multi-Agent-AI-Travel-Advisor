@@ -29,13 +29,15 @@ class TravelKnowledgeRAGTool(BaseTool):
     )
     args_schema: Type[BaseModel] = TravelKnowledgeInput
 
+    # Declare as class fields for Pydantic
+    knowledge_base_path: str = Field(default="./data/travel_knowledge")
+
     # Class-level vector store (initialized once)
     _vectorstore: Optional[Chroma] = None
     _initialized: bool = False
 
-    def __init__(self, knowledge_base_path: str = None):
-        super().__init__()
-        self.knowledge_base_path = knowledge_base_path or "./data/travel_knowledge"
+    def __init__(self, knowledge_base_path: str = "./data/travel_knowledge", **kwargs):
+        super().__init__(knowledge_base_path=knowledge_base_path, **kwargs)
 
         # Initialize vector store if not already done
         if not TravelKnowledgeRAGTool._initialized:
