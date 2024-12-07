@@ -85,36 +85,34 @@ def create_travel_crew(user_request: str):
     """
     print("👥 Creating agent crew...\n")
 
-    # Initialize tools
-    tools = initialize_tools()
-
-    # Create agents with appropriate tools
+    # Create agents without custom tools (CrewAI 1.4.1 compatibility)
+    # Agents will use their LLM capabilities and knowledge
     travel_manager = create_travel_manager(
-        tools=[tools['rag_tool']]  # Manager has access to knowledge base
+        tools=[]
     )
 
     flight_agent = create_flight_agent(
-        tools=[tools['flight_tool']]
+        tools=[]
     )
 
     accommodation_agent = create_accommodation_agent(
-        tools=[tools['hotel_tool']]
+        tools=[]
     )
 
     activity_agent = create_activity_agent(
-        tools=[tools['activity_tool'], tools['rag_tool']]
+        tools=[]
     )
 
     logistics_agent = create_logistics_agent(
-        tools=[tools['rag_tool']]  # Can access travel tips
+        tools=[]
     )
 
     knowledge_agent = create_travel_knowledge_agent(
-        tools=[tools['rag_tool']]
+        tools=[]
     )
 
     itinerary_compiler = create_itinerary_compiler_agent(
-        tools=[]  # Compiler synthesizes info from other agents
+        tools=[]
     )
 
     print("✅ Agents created successfully\n")
